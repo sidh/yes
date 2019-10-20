@@ -12,11 +12,8 @@ func main() {
 	arg += "\n"
 
 	var buf []byte
-	for {
+	for len(buf)+len(arg) <= 4096*16 {
 		buf = append(buf, []byte(arg)...)
-		if len(buf)+len(arg) > 4096*16 {
-			break
-		}
 	}
 
 	for {
